@@ -39,16 +39,19 @@ const displayEntries = () => {
 };
 
 const email = document.getElementById("email");
-email.addEventListener("input", () => Validate(email));
+email.addEventListener("input", () => validateEmail(email));
 
-function Validate(element) {
-  if (element.validity.typeMismatch) {
-    element.setCustomValidity("The email is not in the right format !!");
+function validateEmail(element) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(element.value)) {
+    element.setCustomValidity("Please enter a valid email address.");
   } else {
     element.setCustomValidity("");
   }
   element.reportValidity();
 }
+
 
 const dobInput = document.getElementById("dob");
 dobInput.addEventListener("input", () => validateDob(dobInput));
