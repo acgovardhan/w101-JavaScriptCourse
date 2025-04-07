@@ -45,7 +45,7 @@ function validateEmail(element) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailRegex.test(element.value)) {
-    element.setCustomValidity("Please enter a valid email address.");
+    element.setCustomValidity("Please enter a valid email address!!");
   } else {
     element.setCustomValidity("");
   }
