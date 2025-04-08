@@ -42,16 +42,15 @@ const email = document.getElementById("email");
 email.addEventListener("input", () => validateEmail(email));
 
 function validateEmail(element) {
-  //const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;!emailRegex.test(element.value)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (element.validity.typeMismatch) {
+  if (!emailRegex.test(element.value)) {
     element.setCustomValidity("Please enter a valid email address!!");
     element.reportValidity();
   } else {
     element.setCustomValidity("");
   }
 }
-
 
 const dobInput = document.getElementById("dob");
 dobInput.addEventListener("input", () => validateDob(dobInput));
